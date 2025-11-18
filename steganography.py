@@ -85,7 +85,7 @@ class Steganography:
         stego_img = Image.new(img.mode, img.size)
         stego_img.putdata(new_pixels)
 
-        # --- NEW: Ask for save location if output_path is None ---
+  
         if output_path is None:
             root = Tk()
             root.withdraw()
@@ -103,7 +103,7 @@ class Steganography:
 
         stego_img.save(output_path, 'PNG')
 
-        print(f"✓ Message hidden successfully in: {output_path}")
+        print(f" Message hidden successfully in: {output_path}")
         print(f"  Original message: {len(message)} characters")
         print(f"  Encrypted size: {len(encrypted_msg)} characters")
         print(f"  Bits used: {len(full_binary)} / {max_bits} ({len(full_binary)/max_bits*100:.2f}%)")
@@ -146,10 +146,10 @@ class Steganography:
         decrypted = Steganography.decrypt_message(encrypted_msg, password)
 
         if decrypted:
-            print(f"✓ Message extracted successfully!")
+            print(f" Message extracted successfully!")
             return decrypted
         else:
-            print("✗ Decryption failed. Wrong password or corrupted data.")
+            print(" Decryption failed. Wrong password or corrupted data.")
             return None
 
 
@@ -166,9 +166,9 @@ def choose_image_file():
 
 
 def main():
-    print("="*60)
-    print(" 🔐 STEGANOGRAPHY - Hide Messages in Images")
-    print("="*60)
+  
+    print("  STEGANOGRAPHY - Hide Messages in Images")
+    
 
     while True:
         print("\nChoose an option:")
@@ -184,20 +184,20 @@ def main():
             image_path = choose_image_file()
 
             if not image_path:
-                print("❌ No image selected!")
+                print(" No image selected!")
                 continue
 
             message = input("Enter secret message: ").strip()
             if not message:
-                print("❌ Error: Message cannot be empty!")
+                print(" Error: Message cannot be empty!")
                 continue
 
             password = input("Enter password: ").strip()
             if not password:
-                print("❌ Error: Password cannot be empty!")
+                print("Error: Password cannot be empty!")
                 continue
 
-            print("\n⏳ Processing...")
+            print("\n Processing...")
             Steganography.hide_message(image_path, message, password, output_path=None)
 
         elif choice == '2':
@@ -206,12 +206,12 @@ def main():
             image_path = choose_image_file()
 
             if not image_path:
-                print("❌ No image selected!")
+                print(" No image selected!")
                 continue
 
             password = input("Enter password: ").strip()
             if not password:
-                print("❌ Error: Password cannot be empty!")
+                print(" Error: Password cannot be empty!")
                 continue
 
             print("\n⏳ Processing...")
@@ -219,16 +219,17 @@ def main():
 
             if message:
                 print(f"\n{'='*60}")
-                print(f"🔓 Hidden Message:\n{message}")
+                print(f" Hidden Message:\n{message}")
                 print(f"{'='*60}")
 
         elif choice == '3':
-            print("\n👋 Goodbye!")
+            print("\n Goodbye!")
             break
 
         else:
-            print("❌ Invalid choice. Please try again.")
+            print(" Invalid choice. Please try again.")
 
 
 if __name__ == "__main__":
     main()
+
