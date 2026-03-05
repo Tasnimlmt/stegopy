@@ -1,55 +1,87 @@
-<<<<<<< HEAD
-# Advanced Steganography App
+# StegoPy — Encrypted Image Steganography
 
-Quick start:
+## Overview
 
-1. Create & activate the virtual environment (if you don't have one):
+StegoPy is a steganography application that hides encrypted messages inside images using **LSB (Least Significant Bit) steganography** combined with password-based encryption.
+
+The project allows users to securely embed and extract hidden messages from images while maintaining image integrity.
+
+---
+
+## Objectives
+
+* Implement data hiding using **LSB steganography**
+* Add **encryption** to secure hidden messages
+* Provide a **simple interface** for embedding and extracting data
+* Maintain **image quality and integrity**
+
+---
+
+## Quick Start
+
+### 1. Create and activate a virtual environment
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-2. Install dependencies:
+### 2. Install dependencies
 
 ```bash
 python -m pip install -r backend/requirements.txt
 ```
 
-3. Start the app (recommended):
+### 3. Start the application
+
+Recommended method:
 
 ```bash
 ./run.sh
 ```
 
-Or start directly with the venv Python:
+Or run directly with the virtual environment Python:
 
 ```bash
 .venv/bin/python backend/app.py
 ```
 
-Health check:
+---
+
+## Health Check
 
 ```bash
 curl http://localhost:5000/api/health
 ```
 
-If you see `ModuleNotFoundError: No module named 'flask'`, make sure you installed dependencies into the `.venv` (step 2) and that you're using the venv's Python to run the app.
-=======
-# StegoPy — Encrypted Image Steganography
+---
 
-## Overview
-StegoPy hides encrypted messages inside images using LSB steganography with password-based encryption.
+## Example CLI Commands
 
-## Objectives
-- Implement data hiding using LSB
-- Add encryption for message security
-- Provide a simple CLI interface
-- Ensure image integrity
+Embed a message inside an image:
 
-## Example Commands
 ```bash
 python stego.py embed input.png output.png "My secret message" "MyPassword"
+```
+
+Extract a hidden message:
+
+```bash
 python stego.py extract output.png "MyPassword"
->>>>>>> f7b04b05d356498f9b35800461d92942e928748b
+```
+
+---
+
+## Troubleshooting
+
+If you see the error:
+
+```
+ModuleNotFoundError: No module named 'flask'
+```
+
+Make sure:
+
+1. Dependencies were installed using the virtual environment.
+2. The application is executed using the `.venv` Python interpreter.
 
